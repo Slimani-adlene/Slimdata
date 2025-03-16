@@ -1,8 +1,10 @@
-import React from "react";
-import { motion } from "framer-motion";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 const DataSciencePage = () => {
+	const [menuOpen, setMenuOpen] = useState(false);
+
   return (
     <div className="min-h-screen bg-gray-100">
 
@@ -147,4 +149,3 @@ const DataSciencePage = () => {
 };
 
 export default DataSciencePage;
-
