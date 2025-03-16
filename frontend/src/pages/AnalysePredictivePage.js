@@ -6,7 +6,8 @@ const AnalysePredictivePage = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100 p-6">
-     <header className="bg-white shadow-md py-4 fixed top-0 w-full z-50">
+{/* Barre de navigation */}
+      <header className="bg-white shadow-md py-4 fixed top-0 w-full z-50">
         <div className="container mx-auto flex items-center justify-between px-6">
           
           {/* Menu Burger pour mobile */}
