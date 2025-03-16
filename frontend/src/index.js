@@ -15,7 +15,9 @@ import RealisationsModelisationIA from "./pages/RealisationsModelisationIA";
 import DataAnalysisPage from "./pages/DataAnalysisPage";
 import ProcessAutomationPage from "./pages/ProcessAutomationPage";
 import PresentationPage from "./pages/PresentationPage";
-
+import FinancePage from "./pages/FinancePage";
+import SantePage from "./pages/SantePage";
+import IndustriePage from "./pages/IndustriePage";
 import "./index.css";
 
 ReactDOM.render(
@@ -36,6 +38,9 @@ ReactDOM.render(
 		<Route path="/analyse-donnees" element={<DataAnalysisPage />} />
 		<Route path="/automatisation-processus" element={<ProcessAutomationPage />} />
 		<Route path="/presentation" element={<PresentationPage />} />
+		<Route path="/finance" element={<FinancePage />} />
+		<Route path="/sante" element={<SantePage />} />
+		<Route path="/industrie" element={<IndustriePage />} />
 
 
       </Routes>

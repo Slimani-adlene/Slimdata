@@ -67,6 +67,15 @@ const HomePage = () => {
       <Link to="/realisations" className="bg-gray-200 hover:bg-blue-600 text-gray-700 hover:text-white py-2 px-5 rounded-full font-semibold transition shadow-md">
         Réalisations
       </Link>
+	  
+	  <Link to="/free-ia-models" 
+			  className="bg-green-500 hover:bg-green-700 text-white py-2 px-5 rounded-full font-semibold transition shadow-md"
+			  whileHover={{ scale: 1.05 }} 
+			  transition={{ duration: 0.3 }}>
+			  FREE IA Models
+			</Link>
+	  
+	  
       <Link to="/contact" className="bg-blue-600 hover:bg-blue-700 text-white py-2 px-5 rounded-full font-semibold transition shadow-md">
         Contact
       </Link>
@@ -160,24 +169,27 @@ const HomePage = () => {
         </div>
       </section>
       {/* Secteurs */}
-      <section id="secteurs" className="py-10 bg-white text-center">
-        <h2 className="text-3xl font-bold mb-8">Secteurs d'Activité</h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+      <section id="secteurs" className="py-16 bg-gray-100 text-center">
+  <h2 className="text-3xl font-bold mb-8">Nos Secteurs d'Activité</h2>
+  <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+    
+    <Link to="/finance" className="bg-white p-6 shadow-md rounded-lg hover:shadow-xl transition transform hover:scale-105">
+      <h3 className="text-xl font-semibold">Finance</h3>
+      <p className="text-gray-600">Optimisation des modèles de risque et détection de fraude.</p>
+    </Link>
 
-          <motion.div whileHover={{ scale: 1.05 }} className="bg-gray-100 p-6 shadow-md rounded-lg">
-            <h3 className="text-xl font-semibold">Finance & Assurance</h3>
-            <p className="text-gray-600">Optimisation des risques, scoring et prévisions financières.</p>
-          </motion.div>
-          <motion.div whileHover={{ scale: 1.05 }} className="bg-gray-100 p-6 shadow-md rounded-lg">
-            <h3 className="text-xl font-semibold">Santé & Pharmaceutique</h3>
-            <p className="text-gray-600">Analyse de données médicales, diagnostics et IA en santé.</p>
-          </motion.div>
-          <motion.div whileHover={{ scale: 1.05 }} className="bg-gray-100 p-6 shadow-md rounded-lg">
-            <h3 className="text-xl font-semibold">Retail & E-commerce</h3>
-            <p className="text-gray-600">Personnalisation de l'expérience client et optimisation des ventes.</p>
-          </motion.div>
-        </div>
-      </section>
+    <Link to="/sante" className="bg-white p-6 shadow-md rounded-lg hover:shadow-xl transition transform hover:scale-105">
+      <h3 className="text-xl font-semibold">Santé</h3>
+      <p className="text-gray-600">Analyse prédictive et diagnostic assisté par l'IA.</p>
+    </Link>
+
+    <Link to="/industrie" className="bg-white p-6 shadow-md rounded-lg hover:shadow-xl transition transform hover:scale-105">
+      <h3 className="text-xl font-semibold">Industrie</h3>
+      <p className="text-gray-600">Maintenance prédictive et automatisation intelligente.</p>
+    </Link>
+
+  </div>
+</section>
 
       {/* Contact */}
       <section id="contact" className="py-16 bg-white text-center">
