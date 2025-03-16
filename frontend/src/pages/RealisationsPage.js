@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 
 const RealisationsPage = () => {
+  const [menuOpen, setMenuOpen] = useState(false);
   return (
     <div className="flex flex-col min-h-screen">
       {/* ✅ Barre de navigation */}
