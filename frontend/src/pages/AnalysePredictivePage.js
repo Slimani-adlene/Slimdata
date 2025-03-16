@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 
 const AnalysePredictivePage = () => {
+  const [menuOpen, setMenuOpen] = useState(false);
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100 p-6">
      <header className="bg-white shadow-md py-4 fixed top-0 w-full z-50">
