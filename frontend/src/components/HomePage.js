@@ -40,36 +40,37 @@ const HomePage = () => {
           
           {/* Menu Burger - Aligné tout à gauche */}
           
-          <div className="absolute left-6 flex items-center">
-            <h1 className="text-3xl font-extrabold text-gray-800 tracking-wide font-serif">
-              Slim<span className="text-blue-600">Data</span>
-            </h1>
-          </div>
-         
+          <div className="text-3xl font-extrabold text-gray-800 tracking-wide font-serif">
+      <Link to="/" className="text-gray-800 hover:text-blue-600">
+        Slim<span className="text-blue-600">Data</span>
+      </Link>
+    </div>
 
-          {/* Navigation Alignée à Droite */}
-          <nav className="flex space-x-4">
-    <Link to="/expertises" 
-      className="bg-gray-200 hover:bg-blue-600 text-gray-700 hover:text-white py-2 px-5 rounded-full font-semibold transition shadow-md">
-      Expertises
-    </Link>
-    <Link to="/secteurs" 
-      className="bg-gray-200 hover:bg-blue-600 text-gray-700 hover:text-white py-2 px-5 rounded-full font-semibold transition shadow-md">
-      Secteurs
-    </Link>
-    <Link to="/presentation" 
-      className="bg-gray-200 hover:bg-blue-600 text-gray-700 hover:text-white py-2 px-5 rounded-full font-semibold transition shadow-md">
-      Présentation
-    </Link>
-    <Link to="/realisations" 
-      className="bg-gray-200 hover:bg-blue-600 text-gray-700 hover:text-white py-2 px-5 rounded-full font-semibold transition shadow-md">
-      Réalisations
-    </Link>
-    <Link to="/contact" 
-      className="bg-blue-600 hover:bg-blue-700 text-white py-2 px-5 rounded-full font-semibold transition shadow-md">
-      Contact
-    </Link>
-</nav>
+    {/* Navigation centrée */}
+    <nav className="flex flex-1 justify-center space-x-10">
+	  <Link to="/presentation" className="bg-gray-200 hover:bg-blue-600 text-gray-700 hover:text-white py-2 px-5 rounded-full font-semibold transition shadow-md">
+        Présentation
+      </Link>
+      <motion.a href="#expertises" 
+              className="bg-gray-200 hover:bg-blue-600 text-gray-700 hover:text-white py-2 px-5 rounded-full font-semibold transition shadow-md"
+              whileHover={{ scale: 1.05 }} 
+              transition={{ duration: 0.3 }}>
+              Expertises
+            </motion.a>
+            <motion.a href="#secteurs" 
+              className="bg-gray-200 hover:bg-blue-600 text-gray-700 hover:text-white py-2 px-5 rounded-full font-semibold transition shadow-md"
+              whileHover={{ scale: 1.05 }} 
+              transition={{ duration: 0.3 }}>
+              Secteurs
+            </motion.a>
+      
+      <Link to="/realisations" className="bg-gray-200 hover:bg-blue-600 text-gray-700 hover:text-white py-2 px-5 rounded-full font-semibold transition shadow-md">
+        Réalisations
+      </Link>
+      <Link to="/contact" className="bg-blue-600 hover:bg-blue-700 text-white py-2 px-5 rounded-full font-semibold transition shadow-md">
+        Contact
+      </Link>
+    </nav>
         </div>
       </header>
 
