@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 const RealisationsModelisationIA = () => (
   <div className="min-h-screen bg-gray-100 flex flex-col">
