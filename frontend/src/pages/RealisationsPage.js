@@ -7,35 +7,42 @@ const RealisationsPage = () => {
   return (
     <div className="flex flex-col min-h-screen">
       {/* ✅ Barre de navigation */}
+      {/* Barre de navigation */}
       <header className="bg-white shadow-md py-4 fixed top-0 w-full z-50">
         <div className="container mx-auto flex items-center justify-between px-6">
           
-          {/* Logo cliquable */}
-          <div className="text-3xl font-extrabold text-gray-800 tracking-wide font-serif">
-            <Link to="/" className="text-gray-800 hover:text-blue-600">
-              Slim<span className="text-blue-600">Data</span>
-            </Link>
-          </div>
+          {/* Menu Burger pour mobile */}
+          <button 
+            className="text-3xl text-gray-700 md:hidden"
+            onClick={() => setMenuOpen(!menuOpen)}>
+            ☰
+          </button>
 
-          {/* Navigation centrée */}
-          <nav className="flex flex-1 justify-center space-x-6">
-            <Link to="/expertises" className="bg-gray-200 hover:bg-blue-600 text-gray-700 hover:text-white py-2 px-5 rounded-full font-semibold transition shadow-md">
-              Expertises
-            </Link>
-            <Link to="/secteurs" className="bg-gray-200 hover:bg-blue-600 text-gray-700 hover:text-white py-2 px-5 rounded-full font-semibold transition shadow-md">
-              Secteurs
-            </Link>
-            <Link to="/presentation" className="bg-gray-200 hover:bg-blue-600 text-gray-700 hover:text-white py-2 px-5 rounded-full font-semibold transition shadow-md">
-              Présentation
-            </Link>
-            <Link to="/realisations" className="bg-gray-200 hover:bg-blue-600 text-gray-700 hover:text-white py-2 px-5 rounded-full font-semibold transition shadow-md">
-              Réalisations
-            </Link>
-            <Link to="/contact" className="bg-blue-600 hover:bg-blue-700 text-white py-2 px-5 rounded-full font-semibold transition shadow-md">
-              Contact
-            </Link>
+          {/* ✅ SlimData cliquable vers Home */}
+          <Link to="/" className="text-3xl font-extrabold text-gray-800 tracking-wide font-serif">
+            Slim<span className="text-blue-600">Data</span>
+          </Link>
+
+          {/* ✅ Navigation Desktop (Correction: "Expertises" en motion.a) */}
+          <nav className="hidden md:flex space-x-4">
+            <motion.a href="#expertises" className="btn-nav">Expertises</motion.a>
+            <motion.a href="#secteurs" className="btn-nav">Secteurs</motion.a>
+            <Link to="/realisations" className="btn-nav">Réalisations</Link>
+            <Link to="/free-ia-models" className="btn-nav">Free IA Models</Link>
+            <Link to="/contact" className="btn-nav">Contact</Link>
           </nav>
         </div>
+
+        {/* ✅ Menu mobile déroulant */}
+        {menuOpen && (
+          <div className="md:hidden absolute bg-white shadow-md w-full flex flex-col items-center py-4">
+            <motion.a href="#expertises" className="py-2 btn-nav">Expertises</motion.a>
+            <motion.a href="#secteurs" className="py-2 btn-nav">Secteurs</motion.a>
+            <Link to="/realisations" className="py-2 btn-nav">Réalisations</Link>
+            <Link to="/free-ia-models" className="py-2 btn-nav">Free IA Models</Link>
+            <Link to="/contact" className="py-2 btn-nav">Contact</Link>
+          </div>
+        )}
       </header>
 
       {/* ✅ Contenu principal */}
