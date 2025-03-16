@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 
 const ContactPage = () => {
+  const [menuOpen, setMenuOpen] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -19,6 +20,7 @@ const ContactPage = () => {
     e.preventDefault();
     console.log("Formulaire soumis :", formData);
   };
+  
 
   return (
     <div className="flex flex-col min-h-screen">
