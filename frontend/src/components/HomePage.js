@@ -73,31 +73,7 @@ const HomePage = () => {
       </header>
 
       {/* Menu Déroulant Latéral */}
-      <AnimatePresence>
-        {menuOpen && (
-          <motion.div 
-            initial={{ x: -250, opacity: 0 }} 
-            animate={{ x: 0, opacity: 1 }} 
-            exit={{ x: -250, opacity: 0 }} 
-            transition={{ duration: 0.3 }}
-            className="fixed top-0 left-0 w-64 h-full bg-white shadow-lg p-6 z-50"
-          >
-            {/* Bouton pour fermer le menu */}
-            <button 
-              className="text-gray-700 text-3xl mb-6 focus:outline-none"
-              onClick={() => setMenuOpen(false)}
-            >
-              ✖
-            </button>
-            <nav className="flex flex-col space-y-4">
-              <a href="#about" className="text-gray-700 hover:text-blue-600">À Propos</a>
-              <a href="#services" className="text-gray-700 hover:text-blue-600">Services</a>
-              <a href="#career" className="text-gray-700 hover:text-blue-600">Carrières</a>
-              <a href="#blog" className="text-gray-700 hover:text-blue-600">Blog</a>
-            </nav>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      
 
       {/* Slider (Carrousel) Centré */}
       <section className="flex justify-center items-center h-[70vh] mt-20">
