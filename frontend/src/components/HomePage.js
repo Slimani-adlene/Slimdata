@@ -50,24 +50,24 @@ const HomePage = () => {
             Slim<span className="text-blue-600">Data</span>
           </Link>
 
-          {/* ✅ Navigation Desktop */}
+          {/* ✅ Navigation Desktop (Correction: "Expertises" en motion.a) */}
           <nav className="hidden md:flex space-x-4">
-            <Link to="/expertises" className="btn-nav">Expertises</Link>
-            <Link to="/secteurs" className="btn-nav">Secteurs</Link>
-            <Link to="/realisation" className="btn-nav">Réalisations</Link>
+            <motion.a href="#expertises" className="btn-nav">Expertises</motion.a>
+            <motion.a href="#secteurs" className="btn-nav">Secteurs</motion.a>
+            <Link to="/realisations" className="btn-nav">Réalisations</Link>
             <Link to="/free-ia-models" className="btn-nav">Free IA Models</Link>
-            <Link to="/contact" className="btn-nav-primary">Contact</Link>
+            <Link to="/contact" className="btn-nav">Contact</Link>
           </nav>
         </div>
 
         {/* ✅ Menu mobile déroulant */}
         {menuOpen && (
           <div className="md:hidden absolute bg-white shadow-md w-full flex flex-col items-center py-4">
-            <Link to="/expertises" className="py-2">Expertises</Link>
-            <Link to="/secteurs" className="py-2">Secteurs</Link>
-            <Link to="/realisation" className="py-2">Réalisations</Link>
-            <Link to="/free-ia-models" className="py-2">Free IA Models</Link>
-            <Link to="/contact" className="py-2 text-blue-600">Contact</Link>
+            <motion.a href="#expertises" className="py-2 btn-nav">Expertises</motion.a>
+            <motion.a href="#secteurs" className="py-2 btn-nav">Secteurs</motion.a>
+            <Link to="/realisations" className="py-2 btn-nav">Réalisations</Link>
+            <Link to="/free-ia-models" className="py-2 btn-nav">Free IA Models</Link>
+            <Link to="/contact" className="py-2 btn-nav">Contact</Link>
           </div>
         )}
       </header>
