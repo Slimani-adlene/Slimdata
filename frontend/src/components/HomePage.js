@@ -48,48 +48,28 @@ const HomePage = () => {
          
 
           {/* Navigation Alignée à Droite */}
-          <nav className="absolute left-1/2 transform -translate-x-1/2 flex space-x-6">
-		    <motion.a href="/presentation" 
-              className="bg-gray-200 hover:bg-blue-600 text-gray-700 hover:text-white py-2 px-5 rounded-full font-semibold transition shadow-md"
-              whileHover={{ scale: 1.05 }} 
-              transition={{ duration: 0.3 }}>
-              Présentation
-            </motion.a>
-            <motion.a href="#expertises" 
-              className="bg-gray-200 hover:bg-blue-600 text-gray-700 hover:text-white py-2 px-5 rounded-full font-semibold transition shadow-md"
-              whileHover={{ scale: 1.05 }} 
-              transition={{ duration: 0.3 }}>
-              Expertises
-            </motion.a>
-            <motion.a href="#secteurs" 
-              className="bg-gray-200 hover:bg-blue-600 text-gray-700 hover:text-white py-2 px-5 rounded-full font-semibold transition shadow-md"
-              whileHover={{ scale: 1.05 }} 
-              transition={{ duration: 0.3 }}>
-              Secteurs
-            </motion.a>
-			
-			
-			
-            
-			<motion.a href="/realisations" 
-			  className="bg-gray-200 hover:bg-blue-600 text-gray-700 hover:text-white py-2 px-5 rounded-full font-semibold transition shadow-md"
-			  whileHover={{ scale: 1.05 }} 
-			  transition={{ duration: 0.3 }}>
-			  Réalisations
-			</motion.a>
-			<motion.a href="/free-ia-models" 
-			  className="bg-green-500 hover:bg-green-700 text-white py-2 px-5 rounded-full font-semibold transition shadow-md"
-			  whileHover={{ scale: 1.05 }} 
-			  transition={{ duration: 0.3 }}>
-			  FREE IA Models
-			</motion.a>
-			<motion.a href="/contact" 
-              className="bg-blue-600 hover:bg-blue-700 text-white py-2 px-5 rounded-full font-semibold transition shadow-md"
-              whileHover={{ scale: 1.05 }} 
-              transition={{ duration: 0.3 }}>
-              Contact
-            </motion.a>
-          </nav>
+          <nav className="flex space-x-4">
+    <Link to="/expertises" 
+      className="bg-gray-200 hover:bg-blue-600 text-gray-700 hover:text-white py-2 px-5 rounded-full font-semibold transition shadow-md">
+      Expertises
+    </Link>
+    <Link to="/secteurs" 
+      className="bg-gray-200 hover:bg-blue-600 text-gray-700 hover:text-white py-2 px-5 rounded-full font-semibold transition shadow-md">
+      Secteurs
+    </Link>
+    <Link to="/presentation" 
+      className="bg-gray-200 hover:bg-blue-600 text-gray-700 hover:text-white py-2 px-5 rounded-full font-semibold transition shadow-md">
+      Présentation
+    </Link>
+    <Link to="/realisations" 
+      className="bg-gray-200 hover:bg-blue-600 text-gray-700 hover:text-white py-2 px-5 rounded-full font-semibold transition shadow-md">
+      Réalisations
+    </Link>
+    <Link to="/contact" 
+      className="bg-blue-600 hover:bg-blue-700 text-white py-2 px-5 rounded-full font-semibold transition shadow-md">
+      Contact
+    </Link>
+</nav>
         </div>
       </header>
 
