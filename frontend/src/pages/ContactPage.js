@@ -9,14 +9,14 @@ const ContactPage = () => {
     email: "",
     phone: "",
     category: "Général",
-    description: "",
+    description: "",  // ✅ Correction ici
   });
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-const handleSubmit = async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
@@ -30,7 +30,7 @@ const handleSubmit = async (e) => {
 
         if (response.ok) {
             alert("✅ Votre message a été envoyé avec succès !");
-            setFormData({ name: "", email: "", phone: "", category: "Général", message: "" });
+            setFormData({ name: "", email: "", phone: "", category: "Général", description: "" }); // ✅ Correction ici aussi
         } else {
             alert("❌ Une erreur est survenue. Veuillez réessayer.");
         }
@@ -38,31 +38,25 @@ const handleSubmit = async (e) => {
         console.error("Erreur lors de l'envoi du formulaire :", error);
         alert("❌ Impossible d'envoyer le message. Vérifiez votre connexion internet.");
     }
-};
-
-  
+  };
 
   return (
     <div className="flex flex-col min-h-screen">
       
-      {/* ✅ Barre de navigation mise à jour */}
-      {/* Barre de navigation */}
+      {/* ✅ Barre de navigation */}
       <header className="bg-white shadow-md py-4 fixed top-0 w-full z-50">
         <div className="container mx-auto flex items-center justify-between px-6">
           
-          {/* Menu Burger pour mobile */}
           <button 
             className="text-3xl text-gray-700 md:hidden"
             onClick={() => setMenuOpen(!menuOpen)}>
             ☰
           </button>
 
-          {/* ✅ SlimData cliquable vers Home */}
           <Link to="/" className="text-3xl font-extrabold text-gray-800 tracking-wide font-serif">
             Slim<span className="text-blue-600">Data</span>
           </Link>
 
-          {/* ✅ Navigation Desktop (Correction: "Expertises" en motion.a) */}
           <nav className="hidden md:flex space-x-4">
             <motion.a href="#expertises" className="btn-nav">Expertises</motion.a>
             <motion.a href="#secteurs" className="btn-nav">Secteurs</motion.a>
@@ -72,7 +66,6 @@ const handleSubmit = async (e) => {
           </nav>
         </div>
 
-        {/* ✅ Menu mobile déroulant */}
         {menuOpen && (
           <div className="md:hidden absolute bg-white shadow-md w-full flex flex-col items-center py-4">
             <motion.a href="#expertises" className="py-2 btn-nav">Expertises</motion.a>
@@ -119,7 +112,7 @@ const handleSubmit = async (e) => {
 
           <div className="mb-6">
             <label className="block text-gray-700 font-semibold mb-2">Message</label>
-            <textarea name="message" value={formData.message} onChange={handleChange} rows="4" className="w-full px-4 py-2 border rounded-md focus:ring-blue-500 focus:border-blue-500" required></textarea>
+            <textarea name="description" value={formData.description} onChange={handleChange} rows="4" className="w-full px-4 py-2 border rounded-md focus:ring-blue-500 focus:border-blue-500" required></textarea>
           </div>
 
           <div className="text-center">
@@ -130,7 +123,7 @@ const handleSubmit = async (e) => {
         </form>
       </main>
 
-      {/* ✅ Footer IDENTIQUE */}
+      {/* ✅ Footer */}
       <footer className="bg-gray-900 text-white text-center p-6 mt-auto">
         <p>&copy; 2024 SlimData. Tous droits réservés.</p>
       </footer>
@@ -139,4 +132,3 @@ const handleSubmit = async (e) => {
 };
 
 export default ContactPage;
-
