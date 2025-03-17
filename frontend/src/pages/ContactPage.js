@@ -9,7 +9,7 @@ const ContactPage = () => {
     email: "",
     phone: "",
     category: "Général",
-    message: "",
+    description: "",
   });
 
   const handleChange = (e) => {
