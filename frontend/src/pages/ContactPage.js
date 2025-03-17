@@ -16,10 +16,30 @@ const ContactPage = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Formulaire soumis :", formData);
-  };
+
+    try {
+        const response = await fetch("https://slimdata-backend.onrender.com/api/contact", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(formData),
+        });
+
+        if (response.ok) {
+            alert("✅ Votre message a été envoyé avec succès !");
+            setFormData({ name: "", email: "", phone: "", category: "Général", message: "" });
+        } else {
+            alert("❌ Une erreur est survenue. Veuillez réessayer.");
+        }
+    } catch (error) {
+        console.error("Erreur lors de l'envoi du formulaire :", error);
+        alert("❌ Impossible d'envoyer le message. Vérifiez votre connexion internet.");
+    }
+};
+
   
 
   return (
