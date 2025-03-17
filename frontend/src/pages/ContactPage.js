@@ -144,7 +144,7 @@ const ContactPage = () => {
               >
                 ✔️
               </motion.div>
-              <p className="text-lg font-semibold text-gray-700">Merci ! Votre message a été envoyé avec succès 🎉</p>
+              <p className="text-lg font-semibold text-gray-700">Merci ! Votre message a été envoyé avec succès </p>
             </motion.div>
           </motion.div>
         )}
