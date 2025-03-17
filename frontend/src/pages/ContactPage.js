@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
 const ContactPage = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -9,8 +9,9 @@ const ContactPage = () => {
     email: "",
     phone: "",
     category: "Général",
-    description: "",  // ✅ Correction ici
+    description: "",
   });
+  const [showSuccess, setShowSuccess] = useState(false); // ✅ État pour afficher la confirmation
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -29,8 +30,11 @@ const ContactPage = () => {
         });
 
         if (response.ok) {
-            alert("🚀 Merci ! Votre message a été envoyé avec succès 🎉\nNous vous répondrons dans les plus brefs délais !");
+            setShowSuccess(true); // ✅ Affiche l'animation de succès
             setFormData({ name: "", email: "", phone: "", category: "Général", description: "" });
+            
+            // Ferme automatiquement la popup après 3 secondes
+            setTimeout(() => setShowSuccess(false), 3000);
         } else {
             alert("⚠️ Oups ! Une erreur est survenue. Veuillez réessayer.");
         }
@@ -38,7 +42,7 @@ const ContactPage = () => {
         console.error("Erreur lors de l'envoi du formulaire :", error);
         alert("❌ Impossible d'envoyer le message. Vérifiez votre connexion internet et réessayez.");
     }
-};
+  };
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -47,16 +51,19 @@ const ContactPage = () => {
       <header className="bg-white shadow-md py-4 fixed top-0 w-full z-50">
         <div className="container mx-auto flex items-center justify-between px-6">
           
+          {/* Menu Burger pour mobile */}
           <button 
             className="text-3xl text-gray-700 md:hidden"
             onClick={() => setMenuOpen(!menuOpen)}>
             ☰
           </button>
 
+          {/* ✅ SlimData cliquable vers Home */}
           <Link to="/" className="text-3xl font-extrabold text-gray-800 tracking-wide font-serif">
             Slim<span className="text-blue-600">Data</span>
           </Link>
 
+          {/* ✅ Navigation Desktop */}
           <nav className="hidden md:flex space-x-4">
             <motion.a href="#expertises" className="btn-nav">Expertises</motion.a>
             <motion.a href="#secteurs" className="btn-nav">Secteurs</motion.a>
@@ -66,6 +73,7 @@ const ContactPage = () => {
           </nav>
         </div>
 
+        {/* ✅ Menu mobile déroulant */}
         {menuOpen && (
           <div className="md:hidden absolute bg-white shadow-md w-full flex flex-col items-center py-4">
             <motion.a href="#expertises" className="py-2 btn-nav">Expertises</motion.a>
@@ -101,16 +109,6 @@ const ContactPage = () => {
           </div>
 
           <div className="mb-4">
-            <label className="block text-gray-700 font-semibold mb-2">Catégorie</label>
-            <select name="category" value={formData.category} onChange={handleChange} className="w-full px-4 py-2 border rounded-md focus:ring-blue-500 focus:border-blue-500">
-              <option>Général</option>
-              <option>Support</option>
-              <option>Collaboration</option>
-              <option>Autre</option>
-            </select>
-          </div>
-
-          <div className="mb-6">
             <label className="block text-gray-700 font-semibold mb-2">Message</label>
             <textarea name="description" value={formData.description} onChange={handleChange} rows="4" className="w-full px-4 py-2 border rounded-md focus:ring-blue-500 focus:border-blue-500" required></textarea>
           </div>
@@ -123,6 +121,35 @@ const ContactPage = () => {
         </form>
       </main>
 
+      {/* ✅ Animation de confirmation */}
+      <AnimatePresence>
+        {showSuccess && (
+          <motion.div 
+            className="fixed inset-0 bg-gray-900 bg-opacity-50 flex justify-center items-center"
+            initial={{ opacity: 0 }} 
+            animate={{ opacity: 1 }} 
+            exit={{ opacity: 0 }}
+          >
+            <motion.div 
+              className="bg-white p-6 rounded-lg shadow-lg flex flex-col items-center"
+              initial={{ scale: 0.8 }} 
+              animate={{ scale: 1 }} 
+              exit={{ scale: 0.8 }}
+            >
+              <motion.div 
+                className="w-16 h-16 bg-green-500 text-white flex items-center justify-center rounded-full mb-4"
+                initial={{ scale: 0 }} 
+                animate={{ scale: 1 }} 
+                transition={{ type: "spring", stiffness: 100 }}
+              >
+                ✔️
+              </motion.div>
+              <p className="text-lg font-semibold text-gray-700">Merci ! Votre message a été envoyé avec succès 🎉</p>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       {/* ✅ Footer */}
       <footer className="bg-gray-900 text-white text-center p-6 mt-auto">
         <p>&copy; 2024 SlimData. Tous droits réservés.</p>
@@ -132,3 +159,4 @@ const ContactPage = () => {
 };
 
 export default ContactPage;
+
