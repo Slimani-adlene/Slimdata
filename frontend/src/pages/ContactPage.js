@@ -29,16 +29,16 @@ const ContactPage = () => {
         });
 
         if (response.ok) {
-            alert("✅ Votre message a été envoyé avec succès !");
-            setFormData({ name: "", email: "", phone: "", category: "Général", description: "" }); // ✅ Correction ici aussi
+            alert("🚀 Merci ! Votre message a été envoyé avec succès 🎉\nNous vous répondrons dans les plus brefs délais !");
+            setFormData({ name: "", email: "", phone: "", category: "Général", description: "" });
         } else {
-            alert("❌ Une erreur est survenue. Veuillez réessayer.");
+            alert("⚠️ Oups ! Une erreur est survenue. Veuillez réessayer.");
         }
     } catch (error) {
         console.error("Erreur lors de l'envoi du formulaire :", error);
-        alert("❌ Impossible d'envoyer le message. Vérifiez votre connexion internet.");
+        alert("❌ Impossible d'envoyer le message. Vérifiez votre connexion internet et réessayez.");
     }
-  };
+};
 
   return (
     <div className="flex flex-col min-h-screen">
